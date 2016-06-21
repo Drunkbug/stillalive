@@ -1,0 +1,34 @@
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header text-center">
+                <a class="navbar-brand">Choose A Will Type</a>
+            </div>
+            <div class="pull-left nav-right">
+                <a ng-href="#/user/{{model.uid}}/will"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered table-hover chooser-table">
+                <tbody>
+                <tr><td>Account</td></tr>
+                <tr><td>Item</td></tr>
+                <tr><td>Letter</td></tr>
+                <tr><td>Picture</td></tr>
+                <tr><td>Text</td></tr>
+                <tr><td>Other</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <footer class="footer navbar-fixed-bottom">
+        <div class="container footer-container">
+            <a class="pull-right to-profile" href="#/profile/{{model.uid}}"><i class="glyphicon glyphicon-user"></i></a>
+        </div>
+    </footer>
+</div>

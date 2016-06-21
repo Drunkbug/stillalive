@@ -5,6 +5,7 @@
     angular
         .module("StillAliveAppMaker")
         .controller("MainController", MainController)
+        .controller("ChoiceController", ChoiceController)
         .controller("LoginController", LoginController)
         .controller("RegisterController", RegisterController)
         .controller("ProfileController", ProfileController);
@@ -13,6 +14,37 @@
 
     }
 
+
+    function ChoiceController($location, $routeParams, UserService) {
+        var vm = this;
+        vm.updateUserDate = updateUserDate;
+        vm.uid = $routeParams["id"];
+        function init() {
+            toastr.options = {
+                "positionClass": "toast-bottom-full-width"
+            };
+            UserService
+                .findUserById(vm.uid)
+                .then(function (res) {
+                    vm.user = res.data;
+                });
+        }
+
+        init();
+
+        function updateUserDate() {
+            UserService
+                .updateUserDate(vm.uid)
+                .then(function (res) {
+                    if (res.status === 200) {
+                        toastr.success("Success, your information will be updated");
+                    } else {
+                        toastr.error("User Not Found");
+                    }
+                });
+        }
+
+    }
     function ProfileController($location, $rootScope, $routeParams, UserService) {
         var vm = this;
         vm.updateUser = updateUser;

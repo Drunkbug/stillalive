@@ -211,6 +211,58 @@ input {
     margin-bottom: 80px;
     clear: both;
 }
+.footer-container {
+    padding-top: 17px;
+}
 .name div.col-xs-6 {
     padding: 0;
+    padding-right: 5px;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+.btn-circle.btn-xl {
+    width: 250px;
+    height: 250px;
+    padding: 10px 16px;
+    line-height: 1.33;
+}
+.btn-circle.btn-xl i{
+    font-size: 50px;
+
+}
+
+.btn-circle.btn-xl p {
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+a.to-profile {
+    color:black;
+    font-size: 20px;
+}
+.nav-right {
+    padding-top:13px;
+}
+
+.nav-right a {
+    color:black;
+}
+
+.chooser-table {
+    margin-top: 100px;
+}
+.chooser-table tr {
+    height:50px;
+}
+.chooser-table td{
+    text-align: center;
+    font-size: 15px;
 }

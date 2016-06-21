@@ -5,7 +5,7 @@ module.exports = function () {
     var mongoose = require("mongoose");
     var connectionString = 'mongodb://localhost/stillalive';
 
-    if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+    if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
         connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
             process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
             process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
@@ -14,8 +14,8 @@ module.exports = function () {
     }
     var connection = mongoose.createConnection(connectionString);
 
-    var ClientSchema = require("./user.schema.server")();
-    var Client = connection.model("Client", ClientSchema);
+    var UserSchema = require("./user.schema.server")();
+    var User = connection.model("User", UserSchema);
 
 
     var api = {
@@ -24,38 +24,52 @@ module.exports = function () {
         findUserByUsername: findUserByUsername,
         findUserById: findUserById,
         updateUser: updateUser,
-        findFacebookUser: findFacebookUser,
-        deleteUser: deleteUser
+        deleteUser: deleteUser,
+        updateUserDate: updateUserDate
     };
 
     return api;
 
 
     function createUser(user) {
-        return Client.create(user);
+        return User.create(user);
     }
 
+    function updateUserDate(id) {
+        return User.update(
+            {_id: id},
+            {
+                $set: {
+                    dateUpdated: new Date()
+                }
+
+            });
+    }
     function findUserByCredentials(username, password) {
-        return Client.findOne({username: username, password: password});
+        return User.findOne({username: username, password: password});
     }
 
     function findUserByUsername(username) {
-        return Client.findOne({username: username});
+        return User.findOne({username: username});
     }
 
     function findUserById(userId) {
         // User.find({_id:userId});
-        return Client.findById(userId);
+        return User.findById(userId);
     }
 
     function updateUser(id, newUser) {
-        return Client.update(
+        return User.update(
             {_id: id},
-            {$set :
             {
-                firstName: newUser.firstName,
-                lastName: newUser.lastName
-            }
+                $set: {
+                    firstName: newUser.firstName,
+                    lastName: newUser.lastName,
+                    email: newUser.email,
+                    phone: newUser.phone,
+                    emergencyContact: newUser.emergencyContact,
+                    emergencyPhone: newUser.emergencyPhone
+                }
 
             });
     }
@@ -65,6 +79,6 @@ module.exports = function () {
     }
 
     function findFacebookUser(id) {
-        return User.findOne({'facebook.id':id});
+        return User.findOne({'facebook.id': id});
     }
 };

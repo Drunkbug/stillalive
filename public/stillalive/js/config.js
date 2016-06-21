@@ -39,13 +39,23 @@
                     loggedin: checkLoggedin
                 }
             })
+            .when("/user/:id/choice", {
+                templateUrl: "views/user/choice.view.client.html",
+                controller: "ChoiceController",
+                controllerAs: "model"
+            })
             .when("/user/:id/will", {
                 templateUrl: "views/will/will-list.view.client.html",
                 controller: "WillListController",
                 controllerAs: "model"
             })
+            .when("/user/:id/will/new", {
+                templateUrl: "views/will/will-chooser.view.client.html",
+                controller: "WillChooserController",
+                controllerAs: "model"
+            })
             .when("/user/:id/will/:wid", {
-                templateUrl: "views/will/edit-will.view.client.html",
+                templateUrl: "views/will/will-edit.view.client.html",
                 controller: "EditWillController",
                 controllerAs: "model"
             })

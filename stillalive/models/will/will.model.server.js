@@ -6,7 +6,7 @@ module.exports = function () {
     var WillSchema = require("./will.schema.server")();
     var connectionString = 'mongodb://localhost/stillalive';
 
-    if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+    if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
         connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
             process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
             process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
@@ -18,22 +18,24 @@ module.exports = function () {
 
 
     var api = {
-        findWillsForUser: findWillsForUser,
         createWill: createWill,
+        findWillsByUserId: findWillsByUserId,
         findWillById: findWillById,
         updateWill: updateWill,
-        deleteWill: deleteWill
-
+        deleteWill: deleteWill,
+        reorderWill: reorderWill
     };
+
     return api;
 
-    function findWillsForUser(userId) {
-        return Will.find({_user: userId});
+    function createWill(userId, will) {
+        will._client = userId;
+        return Will.create(will);
+
     }
 
-    function createWill(userId, will) {
-        will._user = userId;
-        return Will.create(will);
+    function findWillsByUserId(userId) {
+        return Will.find({_page: userId});
     }
 
     function findWillById(willId) {
@@ -42,18 +44,47 @@ module.exports = function () {
     }
 
     function updateWill(willId, will) {
-        return Will.update(
-            {_id: willId},
-            {
-                $set: {
-                    name: will.name,
-                    description: will.description
-                }
-            });
-
+        delete will._id;
+        return Will.findOneAndUpdate({_id: willId}, will);
     }
 
     function deleteWill(willId) {
         return Will.remove({_id: willId});
     }
+
+    function reorderWill(userId, start, end) {
+        start = parseInt(start);
+        end = parseInt(end);
+        return Will
+            .find({_client: userId}, function (err, wills) {
+                wills.forEach(function (will) {
+                    if (start < end) {
+                        if (will.order > start && will.order <= end) {
+                            will.order--;
+                            will.save();
+                            console.log("1changed from " + (will.order + 1) + "to --")
+                        } else if (will.order === start) {
+                            will.order = end;
+                            will.save();
+                            console.log("2changed from " + (start) + "to" + end)
+
+                        }
+                    } else if (start > end) {
+                        if (will.order >= end && will.order < start) {
+                            will.order++;
+                            will.save();
+                            console.log("3changed from " + (will.order - 1) + "to ++")
+
+                        }
+                        else if (will.order === start) {
+                            will.order = end;
+                            will.save();
+                            console.log("4changed from " + (start) + "to" + end)
+
+                        }
+                    }
+                })
+            });
+    }
+
 };

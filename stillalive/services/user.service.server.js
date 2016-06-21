@@ -20,6 +20,7 @@ module.exports = function(app, models) {
     app.get("/api/sa/user/:userId", findUserById);
     app.post("/api/sa/user", createUser);
     app.put("/api/sa/user/:userId", updateUser);
+    app.put("/api/sa/userdate/:userId", updateUserDate);
     app.delete("/api/sa/user/:userId", authenticate, deleteUser);
 
     passport.use('saam', new LocalStrategy(localStrategy));
@@ -228,4 +229,15 @@ module.exports = function(app, models) {
                 });
     }
 
+    function updateUserDate(req, res) {
+        var id = req.body.id;
+        userModel
+            .updateUserDate(id)
+            .then(function (user) {
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.status(404).send("Unable to update User")
+                });
+    }
 };

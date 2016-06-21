@@ -1,0 +1,38 @@
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header text-center">
+                <a class="navbar-brand">Welcome Back</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="row">
+                    <button ng-click="model.updateUserDate()" type="button"
+                            class="btn btn-danger center-block btn-circle btn-xl">
+                        <i class="glyphicon glyphicon-heart"></i>
+                        <p class="text-center">I'M STILL ALIVE!</p>
+                    </button>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="row">
+                    <a href="#/user/{{model.uid}}/will">
+                        <button type="button" class="btn btn-info center-block btn-circle btn-xl"><i
+                                class="glyphicon glyphicon-pencil"></i>
+                            <p class="text-center">DRAFT MY WILL</p></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer navbar-fixed-bottom">
+        <div class="container footer-container">
+            <a class="pull-right to-profile" href="#/profile/{{model.uid}}"><i class="glyphicon glyphicon-user"></i></a>
+        </div>
+    </footer>
+</div>

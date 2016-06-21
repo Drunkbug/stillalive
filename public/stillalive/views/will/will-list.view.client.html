@@ -1,0 +1,22 @@
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header text-center">
+                <a class="navbar-brand">Will List</a>
+            </div>
+            <div class="pull-right nav-right">
+                <a href="#/user/{{model.uid}}/will/new"><i class="glyphicon glyphicon-plus"></i></a>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container body-container">
+        <saam-sortable sort="model.sortWill(start, stop)" data="model.wills"></saam-sortable>
+    </div>
+
+    <footer class="footer navbar-fixed-bottom">
+        <div class="container footer-container">
+            <a class="pull-right to-profile" href="#/profile/{{model.uid}}"><i class="glyphicon glyphicon-user"></i></a>
+        </div>
+    </footer>
+</div>

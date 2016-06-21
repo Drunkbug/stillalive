@@ -16,8 +16,7 @@ module.exports = function () {
         emergencyPhone: String,
         Will: {type: mongoose.Schema.Types.ObjectId, ref: 'Will'},
         dateCreate: {type: Date, default: Date.now},
-        checkinDate:{type: Date},
-        dateUpdated: Date
+        dateUpdated: {type: Date, default: Date.now}
     }, {collection: "stillalive.user"});
 
     return UserSchema;

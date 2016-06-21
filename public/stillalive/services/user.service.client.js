@@ -17,9 +17,17 @@
             updateUser:updateUser,
             deleteUser:deleteUser,
             findUserByUsername:findUserByUsername,
+            updateUserDate: updateUserDate
         };
         return api;
 
+        function updateUserDate(id) {
+            var url = "/api/sa/userdate/"+id;
+            var data =  {
+                id:id
+            };
+            return $http.put(url, data);
+        }
         function checkLoggedin() {
             return $http.get("/api/sa/loggedin");
         }
