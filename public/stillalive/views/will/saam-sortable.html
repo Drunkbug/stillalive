@@ -1,15 +1,15 @@
 <div class="container" ng-controller="WillListController as model">
     <table
-           class="table table-hover">
-        <!--'ACCOUNT', 'ITEM', 'LETTER', 'PICTURE', 'TEXT', 'OTHER'-->
-        <tbody ng-repeat="will in model.wills" ng-switch="will.willType">
-            <tr ng-switch-when="ACCOUNT"><td>asd</td></tr>
-            <tr ng-switch-when="ITEM"><td></td></tr>
-            <tr ng-switch-when="LETTER"><td></td></tr>
-            <tr ng-switch-when="PICTURE"><td></td></tr>
-            <tr ng-switch-when="TEXT"><td></td></tr>
-            <tr ng-switch-when="OTHER"><td></td></tr>
+            class="table table-bordered table-hover will-container">
+        <tbody>
+        <tr ng-repeat="will in model.wills" ng-switch="will.willType">
+            <td ng-switch-when="ACCOUNT">account</td>
+            <td ng-switch-when="ITEM">item</td>
+            <td ng-switch-when="LETTER">letter</td>
+            <td ng-switch-when="PICTURE">pic</td>
+            <td ng-switch-when="TEXT">text</td>
+            <td ng-switch-when="OTHER">other</td>
+        </tr>
         </tbody>
-
     </table>
 </div>

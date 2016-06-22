@@ -6,6 +6,7 @@ var mongoose = require("mongoose");
 module.exports = function () {
     var WillSchema = mongoose.Schema({
         _client: {type: mongoose.Schema.Types.ObjectId, ref: 'Client'},
+        order: Number,
         name: String,
         toWhom: String,
         toContact: String,
@@ -24,7 +25,7 @@ module.exports = function () {
         textContent: String,
         otherName: String,
         otherContent: String,
-        widgetType: {
+        willType: {
             type: String,
             enum: ['ACCOUNT', 'ITEM', 'LETTER', 'PICTURE', 'TEXT', 'OTHER']
         },

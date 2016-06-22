@@ -35,7 +35,7 @@
         function createWill(userId, will) {
             var url = "/api/sa/" + userId + "/will";
             var data = {
-                pageId: userId,
+                userId: userId,
                 will: will
             };
             return $http.post(url, data);
@@ -50,8 +50,8 @@
             return $http.put(url, data);
         }
 
-        function reorderWill(start, end) {
-            var url = "/api/will/" + "/will?start=" + start + "&end=" + end;
+        function reorderWill(userId, start, end) {
+            var url = "/api/will/"+ userId + "/will?start=" + start + "&end=" + end;
             return $http.put(url);
         }
 

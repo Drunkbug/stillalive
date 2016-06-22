@@ -14,12 +14,12 @@
         <div class="row">
             <table class="table table-bordered table-hover chooser-table">
                 <tbody>
-                <tr><td>Account</td></tr>
-                <tr><td>Item</td></tr>
-                <tr><td>Letter</td></tr>
-                <tr><td>Picture</td></tr>
-                <tr><td>Text</td></tr>
-                <tr><td>Other</td></tr>
+                <tr><td ng-click="model.createWill('ACCOUNT')">Account</td></tr>
+                <tr><td ng-click="model.createWill('ITEM')">Item</td></tr>
+                <tr><td ng-click="model.createWill('LETTER')">Letter</td></tr>
+                <tr><td ng-click="model.createWill('PICTURE')">Picture</td></tr>
+                <tr><td ng-click="model.createWill('TEXT')">Text</td></tr>
+                <tr><td ng-click="model.createWill('OTHER')">Other</td></tr>
                 </tbody>
             </table>
         </div>

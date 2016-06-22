@@ -4,17 +4,8 @@
 var mongoose = require("mongoose");
 module.exports = function () {
     var WillSchema = require("./will.schema.server")();
-    var connectionString = 'mongodb://localhost/stillalive';
 
-    if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
-        connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-            process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-            process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-            process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-            process.env.OPENSHIFT_APP_NAME;
-    }
-    var connection = mongoose.createConnection(connectionString);
-    var Will = connection.model("Will", WillSchema);
+    var Will = mongoose.model("Will", WillSchema);
 
 
     var api = {
@@ -35,7 +26,7 @@ module.exports = function () {
     }
 
     function findWillsByUserId(userId) {
-        return Will.find({_page: userId});
+        return Will.find({_client: userId});
     }
 
     function findWillById(willId) {
@@ -44,7 +35,6 @@ module.exports = function () {
     }
 
     function updateWill(willId, will) {
-        delete will._id;
         return Will.findOneAndUpdate({_id: willId}, will);
     }
 

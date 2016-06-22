@@ -16,15 +16,16 @@
                     {
                         start: function (event, ui) {
                             start = ui.item.index();
-                            console.log("start");
+                            console.log("start"+start);
                         },
                         stop: function (event, ui) {
                             stop = ui.item.index();
-                            console.log("stop");
+                            console.log("stop"+stop);
+                            console.log(scope)
+                            // var sortedElement = scope.data.splice(start, 1)[0];
+                            // scope.data.splice(stop, 0, sortedElement);
+                            scope.$parent.model.sortWill(start, stop);
 
-                            var sortedElement = scope.data.splice(start, 1)[0];
-                            scope.data.splice(stop, 0, sortedElement);
-                            scope.sortlist({start: start, stop: stop});
                         }
                     });
         }

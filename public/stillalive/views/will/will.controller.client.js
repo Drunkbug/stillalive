@@ -21,6 +21,7 @@
                 .findWillsByUserId(vm.uid)
                 .then(function (res) {
                     vm.wills = res.data;
+                    orderFlag = vm.wills.length-1
                     vm.wills.sort(function (a, b) {
                         return a.order - b.order;
                     });
@@ -40,6 +41,9 @@
             var url = "https://www.youtube.com/embed/" + id;
             return $sce.trustAsResourceUrl(url);
         }
+
+        // $(".will-container")
+        //     .sortable({axis:"y"});
         function sortWill(start, stop) {
             WillService
                 .reorderWill(vm.uid, start, stop)
@@ -55,7 +59,6 @@
     function WillChooserController($location, $routeParams, WillService) {
         var vm = this;
         vm.uid = $routeParams.id;
-        console.log(vm.uid)
         vm.wid = $routeParams.wid;
         vm.createWill = createWill;
         function init() {
