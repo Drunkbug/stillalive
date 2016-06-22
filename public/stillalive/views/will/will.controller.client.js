@@ -6,8 +6,55 @@
         .module("StillAliveAppMaker")
         .controller("WillListController", WillListController)
         .controller("WillChooserController", WillChooserController)
-        .controller("EditWillController", EditWillController);
+        .controller("EditWillController", EditWillController)
+        .controller("ClientWillListController", ClientWillListController)
+        .controller("ClientWillEditController", ClientWillEditController);
+
     var orderFlag = -1;
+
+    function ClientWillEditController($location, $routeParams, $rootScope, WillService) {
+        var vm = this;
+        var id = $routeParams["cid"];
+        vm.aid = $routeParams["aid"];
+        vm.uid = id;
+        vm.wid = $routeParams["wid"];
+
+        function init() {
+            toastr.options = {
+                "positionClass": "toast-bottom-full-width"
+            };
+            WillService
+                .findWillById(vm.wid)
+                .then(function (res) {
+                    vm.will = res.data;
+                });
+        }
+
+        init();
+
+    }
+
+    function ClientWillListController($location, $routeParams, $rootScope, WillService) {
+        var vm = this;
+        var id = $routeParams["cid"];
+        vm.aid = $routeParams["aid"];
+        vm.uid = id;
+
+        function init() {
+            toastr.options = {
+                "positionClass": "toast-bottom-full-width"
+            };
+            WillService
+                .findWillsByUserId(vm.uid)
+                .then(function (res) {
+                    vm.wills = res.data;
+
+                });
+        }
+
+        init();
+
+    }
 
     function WillListController($sce, $routeParams, WillService) {
         var vm = this;

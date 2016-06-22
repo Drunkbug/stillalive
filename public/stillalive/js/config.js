@@ -69,9 +69,14 @@
                 controller: "ClientProfileController",
                 controllerAs: "model"
             })
-            .when("/admin/client/:cid/will/:wid", {
-                templateUrl: "views/will/will-list.view.client.html",
-                controller: "ClientWillController",
+            .when("/admin/:aid/client/:cid/will", {
+                templateUrl: "views/will/will-list.view.admin.html",
+                controller: "ClientWillListController",
+                controllerAs: "model"
+            })
+            .when("/admin/:aid/client/:cid/will/:wid", {
+                templateUrl: "views/will/will-edit.view.admin.html",
+                controller: "ClientWillEditController",
                 controllerAs: "model"
             })
             .otherwise({

@@ -1,7 +1,7 @@
 /**
  * Created by leyiqiang on 5/29/16.
  */
-(function(){
+(function () {
     angular
         .module("StillAliveAppMaker")
         .controller("MainController", MainController)
@@ -10,11 +10,13 @@
         .controller("RegisterController", RegisterController)
         .controller("ProfileController", ProfileController)
         .controller("ClientProfileController", ClientProfileController)
-    .controller("ClientListController", ClientListController);
+        .controller("ClientListController", ClientListController);
 
     function MainController($routeParams, UserService) {
 
     }
+
+
 
     function ClientListController($location, $routeParams, $rootScope, UserService) {
         var vm = this;
@@ -55,6 +57,7 @@
         var vm = this;
         var id = $routeParams["cid"];
         vm.aid = $routeParams["aid"];
+        vm.uid = id;
         vm.stillAlive = stillAlive;
 
         function init() {
@@ -80,7 +83,7 @@
                     }
                 });
         }
-        
+
     }
 
     function ChoiceController($location, $routeParams, UserService) {
@@ -113,6 +116,7 @@
         }
 
     }
+
     function ProfileController($location, $rootScope, $routeParams, UserService) {
         var vm = this;
         vm.updateUser = updateUser;
@@ -186,6 +190,7 @@
                 "positionClass": "toast-bottom-full-width"
             };
         }
+
         init();
         function Login(username, password) {
             if ((username == "" || username == undefined) && (password == "" || password == undefined)) {
@@ -215,7 +220,7 @@
                         var user = res.data;
                         if (user) {
                             var id = user._id;
-                            if(user.type=='CLIENT') {
+                            if (user.type == 'CLIENT') {
                                 $location.url("/profile/" + id);
                             } else {
                                 $location.url("/admin/" + id);
@@ -246,7 +251,7 @@
                 password: password,
                 firstname: "",
                 lastName: "",
-                type:'CLIENT'
+                type: 'CLIENT'
             };
             if ((username == "" || username == undefined)
                 && ((password == "" || password == undefined)
@@ -254,11 +259,11 @@
                 vm.checkUsername = false;
                 vm.dupPwd = false;
                 toastr.error("invalid username and password");
-            } else if((username == "" || username == undefined)) {
+            } else if ((username == "" || username == undefined)) {
                 vm.checkUsername = false;
                 vm.dupPwd = true;
                 toastr.error("invalid username");
-            } else if((password == "" || password == undefined)
+            } else if ((password == "" || password == undefined)
                 || (password != cpwd)) {
                 vm.checkUsername = true;
                 vm.dupPwd = false;

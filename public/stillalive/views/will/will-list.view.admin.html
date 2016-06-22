@@ -1,0 +1,59 @@
+<div class="container table-container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <div class="navbar-header text-center">
+                <a class="navbar-brand">Will List</a>
+            </div>
+            <div class="pull-left nav-right">
+                <a href="#/admin/{{model.aid}}/client/{{model.uid}}"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-container">
+        <table
+                class="table table-bordered table-hover will-container">
+            <tbody>
+            <tr ng-repeat="will in model.wills" ng-switch="will.willType">
+                <td ng-switch-when="ACCOUNT">
+                    <div><span class="willtype">account</span> {{will.name}}</div>
+                    <a class="setting-icon" href="#/admin/{{model.aid}}/client/{{model.uid}}/will/{{will._id}}">
+                        <i class="glyphicon glyphicon glyphicon-eye-open"></i>
+                    </a></td>
+                <td ng-switch-when="ITEM">
+                    <div><span class="willtype">item</span> {{will.name}}</div>
+
+
+                    <a class="setting-icon" href="#/admin/{{model.aid}}/client/{{model.uid}}/will/{{will._id}}">
+                        <i class="glyphicon glyphicon glyphicon-eye-open"></i>
+                    </a></td>
+                <td ng-switch-when="LETTER">
+                    <div><span class="willtype">letter</span> {{will.name}}</div>
+
+
+                    <a class="setting-icon" href="#/admin/{{model.aid}}/client/{{model.uid}}/will/{{will._id}}">
+                        <i class="glyphicon glyphicon glyphicon-eye-open"></i>
+                    </a></td>
+                <td ng-switch-when="PICTURE">
+                    <div><span class="willtype">picture</span> {{will.name}}</div>
+                    <a class="setting-icon" href="#/admin/{{model.aid}}/client/{{model.uid}}/will/{{will._id}}">
+                        <i class="glyphicon glyphicon glyphicon-eye-open"></i>
+                    </a></td>
+                <td ng-switch-when="TEXT">
+                    <div><span class="willtype">text</span> {{will.name}}</div>
+
+
+                    <a class="setting-icon" href="#/admin/{{model.aid}}/client/{{model.uid}}/will/{{will._id}}">
+                        <i class="glyphicon glyphicon glyphicon-eye-open"></i>
+                    </a></td>
+                <td ng-switch-when="OTHER">
+                    <div><span class="willtype">other</span> {{will.name}}</div>
+                    <a class="setting-icon" href="#/admin/{{model.aid}}/client/{{model.uid}}/will/{{will._id}}">
+                        <i class="glyphicon glyphicon glyphicon-eye-open"></i>
+                    </a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

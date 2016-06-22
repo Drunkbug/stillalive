@@ -5,10 +5,7 @@
                 <a class="navbar-brand">Edit Will</a>
             </div>
             <div class="pull-left nav-right">
-                <a ng-href="#/user/{{model.uid}}/will"><i class="glyphicon glyphicon-chevron-left"></i></a>
-            </div>
-            <div class="pull-right nav-right">
-                <a ng-click="model.updateWill()"><i class="glyphicon glyphicon-ok"></i></a>
+                <a ng-href="#/admin/{{model.aid}}/client/{{model.uid}}/will/{{will._id}}"><i class="glyphicon glyphicon-chevron-left"></i></a>
             </div>
         </div>
     </nav>
@@ -20,42 +17,39 @@
                     <div class="form-group">
                         <label for="accountName">name</label>
                         <input type="text" ng-model="model.will.name" class="form-control" id="accountName"
-                               value="{{model.will.name}}">
+                               value="{{model.will.name}}" disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label for="account">account</label>
                         <input type="text" ng-model="model.will.account" class="form-control" id="account"
-                               value="{{model.will.account}}">
+                               value="{{model.will.account}}" disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label for="accountPwd">account's password</label>
                         <input type="text" ng-model="model.will.accountPwd" class="form-control" id="accountPwd"
-                               value="{{model.will.accountPwd}}">
+                               value="{{model.will.accountPwd}}"disabled>
                     </div>
                 </div>
                 <div class="row name">
                     <div class="form-group col-xs-6">
                         <label>to Whom</label>
                         <input type="text" ng-model="model.will.toWhom" class="form-control"
-                               value="{{model.will.toWhom}}">
+                               value="{{model.will.toWhom}}"disabled>
                     </div>
                     <div class="form-group col-xs-6">
                         <label>The person's contact info</label>
                         <input type="text" ng-model="model.will.toContact" class="form-control"
-                               value="{{model.will.toContact}}">
+                               value="{{model.will.toContact}}"disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea ng-model="model.will.description" class="form-control"
+                    <textarea disabled="disabled" ng-model="model.will.description" class="form-control"
                               rows="3">{{model.will.description}}</textarea>
-                </div>
-                <div class="row">
-                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
                 </div>
             </form>
         </div>
@@ -64,42 +58,39 @@
                 <div class="row">
                     <div class="form-group">
                         <label>name</label>
-                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}"disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>item name</label>
                         <input type="text" ng-model="model.will.itemName" class="form-control"
-                               value="{{model.will.itemName}}">
+                               value="{{model.will.itemName}}"disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>item number</label>
                         <input type="text" ng-model="model.will.itemNumber" class="form-control"
-                               value="{{model.will.itemNumber}}">
+                               value="{{model.will.itemNumber}}"disabled>
                     </div>
                 </div>
                 <div class="row name">
                     <div class="form-group col-xs-6">
                         <label>to Whom</label>
                         <input type="text" ng-model="model.will.toWhom" class="form-control"
-                               value="{{model.will.toWhom}}">
+                               value="{{model.will.toWhom}}"disabled>
                     </div>
                     <div class="form-group col-xs-6">
                         <label>The person's contact info</label>
                         <input type="text" ng-model="model.will.toContact" class="form-control"
-                               value="{{model.will.toContact}}">
+                               value="{{model.will.toContact}}"disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea ng-model="model.will.description" class="form-control"
+                    <textarea disabled="disabled" ng-model="model.will.description" class="form-control"
                               rows="3">{{model.will.description}}</textarea>
-                </div>
-                <div class="row">
-                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
                 </div>
             </form>
         </div>
@@ -108,42 +99,39 @@
                 <div class="row">
                     <div class="form-group">
                         <label>name</label>
-                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}"disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>letter name</label>
                         <input type="text" ng-model="model.will.letterName" class="form-control"
-                               value="{{model.will.letterName}}">
+                               value="{{model.will.letterName}}"disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>content</label>
                         <input type="text" ng-model="model.will.letterContent" class="form-control"
-                               value="{{model.will.letterContent}}">
+                               value="{{model.will.letterContent}}"disabled>
                     </div>
                 </div>
                 <div class="row name">
                     <div class="form-group col-xs-6">
                         <label>to Whom</label>
                         <input type="text" ng-model="model.will.toWhom" class="form-control"
-                               value="{{model.will.toWhom}}">
+                               value="{{model.will.toWhom}}"disabled>
                     </div>
                     <div class="form-group col-xs-6">
                         <label>The person's contact info</label>
                         <input type="text" ng-model="model.will.toContact" class="form-control"
-                               value="{{model.will.toContact}}">
+                               value="{{model.will.toContact}}"disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea ng-model="model.will.description" class="form-control"
+                    <textarea disabled="disabled" ng-model="model.will.description" class="form-control"
                               rows="3">{{model.will.description}}</textarea>
-                </div>
-                <div class="row">
-                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
                 </div>
             </form>
 
@@ -154,54 +142,39 @@
                 <div class="row">
                     <div class="form-group">
                         <label>name</label>
-                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}"disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>picture name</label>
                         <input type="text" ng-model="model.will.pictureName" class="form-control"
-                               value="{{model.will.pictureName}}">
+                               value="{{model.will.pictureName}}"disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>picture url</label>
                         <input type="text" ng-model="model.will.pictureUrl" class="form-control"
-                               value="{{model.will.pictureUrl}}">
+                               value="{{model.will.pictureUrl}}"disabled>
                     </div>
-                </div>
-                <div class="row name">
-                    <form action="/api/sa/upload" method="post" enctype="multipart/form-data">
-                        <div class="col-xs-12 col-sm-10">
-                            <input name="myFile" type="file" class="form-control"/>
-                            <input name="willId" value="{{model.wid}}" style="display: none"/>
-                            <input name="userId" value="{{model.uid}}" style="display: none"/>
-                        </div>
-                        <div class="col-xs-12 col-sm-2">
-                            <input type="submit" name="upload" value="upload image" class="btn btn-default">
-                        </div>
-                    </form>
                 </div>
                 <div class="row name">
                     <div class="form-group col-xs-6">
                         <label>to Whom</label>
                         <input type="text" ng-model="model.will.toWhom" class="form-control"
-                               value="{{model.will.toWhom}}">
+                               value="{{model.will.toWhom}}"disabled>
                     </div>
                     <div class="form-group col-xs-6">
                         <label>The person's contact info</label>
                         <input type="text" ng-model="model.will.toContact" class="form-control"
-                               value="{{model.will.toContact}}">
+                               value="{{model.will.toContact}}"disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea ng-model="model.will.description" class="form-control"
+                    <textarea disabled="disabled" ng-model="model.will.description" class="form-control"
                               rows="3">{{model.will.description}}</textarea>
-                </div>
-                <div class="row">
-                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
                 </div>
             </form>
 
@@ -212,14 +185,14 @@
                 <div class="row">
                     <div class="form-group">
                         <label>name</label>
-                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}"disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>text name</label>
                         <input type="text" ng-model="model.will.textName" class="form-control"
-                               value="{{model.will.textName}}">
+                               value="{{model.will.textName}}"disabled>
                     </div>
                 </div>
                 <div class="row">
@@ -227,28 +200,25 @@
                         <label>content</label>
                         <!--todo-->
                         <input type="text" ng-model="model.will.textContent" class="form-control"
-                               value="{{model.will.textContent}}">
+                               value="{{model.will.textContent}}"disabled>
                     </div>
                 </div>
                 <div class="row name">
                     <div class="form-group col-xs-6">
                         <label>to Whom</label>
                         <input type="text" ng-model="model.will.toWhom" class="form-control"
-                               value="{{model.will.toWhom}}">
+                               value="{{model.will.toWhom}}"disabled>
                     </div>
                     <div class="form-group col-xs-6">
                         <label>The person's contact info</label>
                         <input type="text" ng-model="model.will.toContact" class="form-control"
-                               value="{{model.will.toContact}}">
+                               value="{{model.will.toContact}}"disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea ng-model="model.will.description" class="form-control"
+                    <textarea disabled="disabled" ng-model="model.will.description" class="form-control"
                               rows="3">{{model.will.description}}</textarea>
-                </div>
-                <div class="row">
-                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
                 </div>
             </form>
 
@@ -258,46 +228,36 @@
                 <div class="row">
                     <div class="form-group">
                         <label>name</label>
-                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}"disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>content</label>
                         <input type="text" ng-model="model.will.otherContent" class="form-control"
-                               value="{{model.will.otherContent}}">
+                               value="{{model.will.otherContent}}"disabled>
                     </div>
                 </div>
                 <div class="row name">
                     <div class="form-group col-xs-6">
                         <label>to Whom</label>
                         <input type="text" ng-model="model.will.toWhom" class="form-control"
-                               value="{{model.will.toWhom}}">
+                               value="{{model.will.toWhom}}"disabled>
                     </div>
                     <div class="form-group col-xs-6">
                         <label>The person's contact info</label>
                         <input type="text" ng-model="model.will.toContact" class="form-control"
-                               value="{{model.will.toContact}}">
+                               value="{{model.will.toContact}}"disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea ng-model="model.will.description" class="form-control"
+                    <textarea disabled="disabled" ng-model="model.will.description" class="form-control"
                               rows="3">{{model.will.description}}</textarea>
                 </div>
-                <div class="row">
-                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
-                </div>
-
             </form>
 
         </div>
 
     </div>
-
-    <footer class="footer navbar-fixed-bottom">
-        <div class="container footer-container">
-            <a class="pull-right to-profile" href="#/profile/{{model.uid}}"><i class="glyphicon glyphicon-user"></i></a>
-        </div>
-    </footer>
 </div>

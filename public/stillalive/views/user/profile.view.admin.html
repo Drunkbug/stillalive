@@ -5,7 +5,7 @@
                 <a class="navbar-brand">Profile</a>
             </div>
             <div class="pull-left nav-right">
-                <a href="#/admin/model.aid"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                <a href="#/admin/{{model.aid}}"><i class="glyphicon glyphicon-chevron-left"></i></a>
             </div>
         </div>
 
@@ -51,7 +51,7 @@
                 <button ng-click = "model.stillAlive()" type="button" class="btn btn-danger btn-block">Still Alive</button>
             </div>
             <div class="row">
-                <a href=""><button type="button" class="btn btn-primary btn-block">Will List</button></a>
+                <a href="#/admin/{{model.aid}}/client/{{model.user._id}}/will/"><button type="button" class="btn btn-primary btn-block">Will List</button></a>
             </div>
         </form>
     </div>
