@@ -25,7 +25,9 @@
                     <i class="glyphicon glyphicon-cog"></i>
                 </a></td>
             <td ng-switch-when="PICTURE">
-                <div><span class="willtype">picture</span> {{will.name}}</div>
+                <div><span class="willtype">picture</span> {{will.name}}
+                    <img ng-src="{{will.pictureUrl}}" width="100%" alt="">
+                </div>
                 <a class="setting-icon" href="#/user/{{model.uid}}/will/{{will._id}}">
                     <i class="glyphicon glyphicon-cog"></i>
                 </a></td>
