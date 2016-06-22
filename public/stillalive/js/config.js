@@ -66,11 +66,11 @@
             })
             .when("/admin/:aid/client/:cid", {
                 templateUrl: "views/user/profile.view.admin.html",
-                controller: "ProfileController",
+                controller: "ClientProfileController",
                 controllerAs: "model"
             })
-            .when("/admin/:aid/client/:cid/will/:wid", {
-                templateUrl: "views/will/will=list.view.client.html",
+            .when("/admin/client/:cid/will/:wid", {
+                templateUrl: "views/will/will-list.view.client.html",
                 controller: "ClientWillController",
                 controllerAs: "model"
             })

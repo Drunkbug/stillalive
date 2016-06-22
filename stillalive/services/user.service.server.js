@@ -22,6 +22,7 @@ module.exports = function(app, models) {
     app.put("/api/sa/user/:userId", updateUser);
     app.put("/api/sa/userdate/:userId", updateUserDate);
     app.delete("/api/sa/user/:userId", authenticate, deleteUser);
+    app.get("/api/sa/users", findUsers);
 
     passport.use('saam', new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
@@ -237,7 +238,18 @@ module.exports = function(app, models) {
                     res.sendStatus(200);
                 },
                 function (err) {
-                    res.status(404).send("Unable to update User")
+                    res.status(404).send("Unable to update User");
                 });
+    }
+
+    function findUsers(req, res) {
+        userModel
+            .findUsers()
+            .then(function(users){
+                res.json(users);
+            },
+            function(err){
+                res.statusCode(404);
+            });
     }
 };

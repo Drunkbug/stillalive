@@ -1,0 +1,27 @@
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <div class="navbar-header text-center">
+                <a class="navbar-brand">Client List</a>
+            </div>
+            <div class="pull-left nav-right">
+                <a ng-click="model.logout()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-container">
+        <ul ng-repeat="user in model.users" ng-switch="user.type" class="list-group">
+            <a class="client-link" href="#/admin/{{model.aid}}/client/{{user._id}}"><li ng-switch-when="CLIENT" class="list-group-item">
+                <span class="badge">{{user.dateUpdated | getDays}}</span>
+                {{user.username}}
+            </li></a>
+        </ul>
+    </div>
+
+    <footer class="footer navbar-fixed-bottom">
+        <div class="container footer-container">
+            <a class="pull-right to-profile" href="#/profile/{{model.uid}}"><i class="glyphicon glyphicon-user"></i></a>
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header text-center">
+                <a class="navbar-brand">Profile</a>
+            </div>
+            <div class="pull-left nav-right">
+                <a href="#/admin/model.aid"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="container body-container">
+        <form>
+            <div class="row">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" ng-model="model.user.username" class="form-control" id="username" value="{{model.user.username}}" disabled>
+                </div>
+            </div>
+            <div class="row name">
+                <div class="form-group col-xs-6">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" ng-model="model.user.firstName" class="form-control" id="firstname" value="{{model.user.firstname}}"disabled>
+                </div>
+                <div class="form-group col-xs-6">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" ng-model="model.user.lastName" class="form-control" id="lastname" value="{{model.user.lastname}}"disabled>
+                </div>
+            </div>
+            <div class="row">
+                <label for="email">Email</label>
+                <input type="text" ng-model="model.user.email" class="form-control" id="email" value="{{model.user.email}}"disabled>
+            </div>
+            <div class="row">
+                <label for="phone">Phone</label>
+                <input type="text" ng-model="model.user.phone" class="form-control" id="phone" value="{{model.user.phone}}"disabled>
+            </div>
+            <div class="row name">
+                <div class="form-group col-xs-6">
+                    <label for="ec">EmergencyContact</label>
+                    <input type="text" ng-model="model.user.emergencyContact" class="form-control" id="ec" value="{{model.user.emergencyContact}}"disabled>
+                </div>
+                <div class="form-group col-xs-6">
+                    <label for="ep">EmergencyPhone</label>
+                    <input type="text" ng-model="model.user.emergencyPhone" class="form-control" id="ep" value="{{model.user.emergencyPhone}}"disabled>
+                </div>
+            </div>
+            <div class="row">
+                <button ng-click = "model.stillAlive()" type="button" class="btn btn-danger btn-block">Still Alive</button>
+            </div>
+            <div class="row">
+                <a href=""><button type="button" class="btn btn-primary btn-block">Will List</button></a>
+            </div>
+        </form>
+    </div>
+</div>

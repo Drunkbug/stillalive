@@ -289,3 +289,11 @@ span.willtype {
     color: gray;
     font-weight: bold;
 }
+
+.nav-right {
+    z-index: 1000;
+}
+
+.client-link {
+    color: black;
+}

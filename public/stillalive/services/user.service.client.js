@@ -17,7 +17,8 @@
             updateUser:updateUser,
             deleteUser:deleteUser,
             findUserByUsername:findUserByUsername,
-            updateUserDate: updateUserDate
+            updateUserDate: updateUserDate,
+            findUsers: findUsers
         };
         return api;
 
@@ -85,6 +86,10 @@
             return $http.get(url);
         }
 
+        function findUsers() {
+            var url = "/api/sa/users"
+            return $http.get(url);
+        }
         function updateUser(id, newUser) {
             var url = "/api/sa/user/"+id;
             var data =  {

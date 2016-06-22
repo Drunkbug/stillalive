@@ -9,14 +9,78 @@
         .controller("LoginController", LoginController)
         .controller("RegisterController", RegisterController)
         .controller("ProfileController", ProfileController)
-        .controller("ClientListController", ClientListController);
+        .controller("ClientProfileController", ClientProfileController)
+    .controller("ClientListController", ClientListController);
 
     function MainController($routeParams, UserService) {
 
     }
 
-    function ClientListController($location, $routeParams, UserService) {
+    function ClientListController($location, $routeParams, $rootScope, UserService) {
+        var vm = this;
+        vm.logout = logout;
+        vm.aid = $routeParams["aid"];
+        function init() {
+            toastr.options = {
+                "positionClass": "toast-bottom-full-width"
+            };
+            UserService
+                .findUsers()
+                .then(function (res) {
+                    vm.users = res.data;
+                });
+        }
 
+
+        init();
+
+
+        function logout() {
+            $rootScope.currentUser = null;
+            UserService
+                .logout()
+                .then(
+                    function () {
+                        $location.url("/login");
+                    },
+                    function () {
+                        $location.url("/login");
+                    }
+                );
+        }
+
+    }
+
+    function ClientProfileController($location, $routeParams, $rootScope, UserService) {
+        var vm = this;
+        var id = $routeParams["cid"];
+        vm.aid = $routeParams["aid"];
+        vm.stillAlive = stillAlive;
+
+        function init() {
+            toastr.options = {
+                "positionClass": "toast-bottom-full-width"
+            };
+            UserService
+                .findUserById(id)
+                .then(function (res) {
+                    vm.user = res.data;
+                });
+        }
+
+        init();
+        function stillAlive() {
+            UserService
+                .updateUserDate(vm.uid)
+                .then(function (res) {
+                    if (res.status === 200) {
+                        toastr.success("Success, client information will be updated");
+                    } else {
+                        toastr.error("User Not Found");
+                    }
+                });
+        }
+        
     }
 
     function ChoiceController($location, $routeParams, UserService) {
