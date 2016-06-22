@@ -92,7 +92,7 @@
                 .then(
                     function (res) {
                         var user = res.data;
-                        if (user == '') {
+                        if (user == '0') {
                             deferred.reject();
                             $rootScope.currentUser = null;
                             $location.url("/main");
