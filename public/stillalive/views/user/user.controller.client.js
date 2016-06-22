@@ -8,12 +8,16 @@
         .controller("ChoiceController", ChoiceController)
         .controller("LoginController", LoginController)
         .controller("RegisterController", RegisterController)
-        .controller("ProfileController", ProfileController);
+        .controller("ProfileController", ProfileController)
+        .controller("ClientListController", ClientListController);
 
     function MainController($routeParams, UserService) {
 
     }
 
+    function ClientListController($location, $routeParams, UserService) {
+
+    }
 
     function ChoiceController($location, $routeParams, UserService) {
         var vm = this;
@@ -147,7 +151,11 @@
                         var user = res.data;
                         if (user) {
                             var id = user._id;
-                            $location.url("/profile/" + id);
+                            if(user.type=='CLIENT') {
+                                $location.url("/profile/" + id);
+                            } else {
+                                $location.url("/admin/" + id);
+                            }
                         } else {
                             toastr.error("User Not Found");
                         }
@@ -173,7 +181,8 @@
                 username: username,
                 password: password,
                 firstname: "",
-                lastName: ""
+                lastName: "",
+                type:'CLIENT'
             };
             if ((username == "" || username == undefined)
                 && ((password == "" || password == undefined)

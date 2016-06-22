@@ -7,7 +7,7 @@ module.exports = function (app, models) {
     var multer = require('multer'); // npm install multer --save
     var upload = multer({dest: __dirname + '/../../public/uploads'});
 
-    app.post("/api/upload", upload.single('myFile'), uploadImage);
+    app.post("/api/sa/upload", upload.single('myFile'), uploadImage);
     app.post("/api/sa/:userId/will", createWill);
     app.get("/api/sa/:userId/will", findWillsByUserId);
     app.get("/api/will/:willId", findWillById);
@@ -16,12 +16,13 @@ module.exports = function (app, models) {
     app.delete("/api/will/:willId", deleteWill);
 
     function uploadImage(req, res) {
+        console.log("here")
         var willId = req.body.willId;
         var userId = req.body.userId;
         var width = req.body.width;
         var myFile = req.file;
         if (myFile == null) {
-            res.redirect("/assignment/index.html#/user/" + userId + "/will/" + willId);
+            res.redirect("/stillalive/index.html#/user/" + userId + "/will/" + willId);
             return;
         }
         var originalname = myFile.originalname; // file name on user's computer
@@ -30,12 +31,27 @@ module.exports = function (app, models) {
         var destination = myFile.destination;  // folder where file is saved to
         var size = myFile.size;
         var mimetype = myFile.mimetype;
-        for (var i in wills) {
-            if (wills[i]._id == willId) {
-                wills[i].url = "/uploads/" + filename;
-            }
-        }
-        res.redirect("/assignment/index.html#/user/" + userId + "/will/" + willId);
+
+        var willHolder;
+        willModel
+            .findWillById(willId)
+            .then(
+                function(will) {
+                    willHolder = JSON.parse(JSON.stringify(will));
+                    willHolder.pictureUrl = "/uploads/"+filename;
+
+                    willModel
+                        .updateWill(willId, willHolder)
+                        .then(
+                            function (will) {
+                                res.redirect("/stillalive/index.html#/user/" + userId + "/will/" + willId);
+                            },
+                            function (err) {
+                                res.statusCode(400);
+                            }
+                        )
+                }
+            )
 
     }
 

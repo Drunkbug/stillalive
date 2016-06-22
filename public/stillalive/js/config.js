@@ -59,19 +59,19 @@
                 controller: "EditWillController",
                 controllerAs: "model"
             })
-            .when("/admin", {
-                templateUrl: "views/admin/login.view.admin.html",
-                controller: "AdminLoginController",
-                controllerAs: "model"
-            })
             .when("/admin/:aid", {
-                templateUrl: "views/admin/client-list.view.admin.html",
+                templateUrl: "views/user/client-list.view.admin.html",
                 controller: "ClientListController",
                 controllerAs: "model"
             })
             .when("/admin/:aid/client/:cid", {
-                templateUrl: "views/admin/client-info.view.admin.html",
-                controller: "ClientInfoController",
+                templateUrl: "views/user/profile.view.admin.html",
+                controller: "ProfileController",
+                controllerAs: "model"
+            })
+            .when("/admin/:aid/client/:cid/will/:wid", {
+                templateUrl: "views/will/will=list.view.client.html",
+                controller: "ClientWillController",
                 controllerAs: "model"
             })
             .otherwise({

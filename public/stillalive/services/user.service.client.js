@@ -67,7 +67,8 @@
             var url = "/api/sa/register";
             var user = {
                 username: newUser.username,
-                password: newUser.password
+                password: newUser.password,
+                type:newUser.type
             };
 
             return $http.post(url, user);

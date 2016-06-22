@@ -23,7 +23,6 @@ module.exports = function () {
         pictureUrl: String,
         textName: String,
         textContent: String,
-        otherName: String,
         otherContent: String,
         willType: {
             type: String,

@@ -17,6 +17,9 @@
         vm.uid = $routeParams.id;
         vm.wid = $routeParams.wid;
         function init() {
+            toastr.options = {
+                "positionClass": "toast-bottom-full-width"
+            };
             WillService
                 .findWillsByUserId(vm.uid)
                 .then(function (res) {
@@ -62,6 +65,9 @@
         vm.wid = $routeParams.wid;
         vm.createWill = createWill;
         function init() {
+            toastr.options = {
+                "positionClass": "toast-bottom-full-width"
+            };
             WillService
                 .findWillsByUserId(vm.uid)
                 .then(function (res) {
@@ -97,6 +103,9 @@
         vm.checkName = true;
 
         function init() {
+            toastr.options = {
+                "positionClass": "toast-bottom-full-width"
+            };
             WillService
                 .findWillById(vm.wid)
                 .then(function (res) {
@@ -108,14 +117,18 @@
 
 
         function deleteWill() {
-            WillService.deleteWill(vm.wid);
+            WillService
+                .deleteWill(vm.wid)
+                .then(function (res) {
+                    $location.url("/user/"+vm.uid+"/will");
+                });
         }
 
         function updateWill() {
             if (vm.will.name == "" || vm.will.name == undefined) {
                 vm.checkName = false;
-                Materialize.toast("Name should not be empty", 1000);
-                $location.url("/user/" + vm.uid + "/will/" + will._id);
+                toastr.error("Name should not be empty", 1000);
+                $location.url("/user/" + vm.uid + "/will/" + vm.will._id);
             } else {
                 vm.checkName = true;
                 WillService
@@ -123,9 +136,9 @@
                     .then(function (res) {
                         var result = res.status;
                         if (result === 200) {
-                            Materialize.toast("Success", 1000);
+                            toastr.success("Success", 1000);
                         } else {
-                            Materialize.toast("Will Not Found", 1000);
+                            toastr.error("Will Not Found", 1000);
                         }
                     });
             }

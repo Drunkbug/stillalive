@@ -1,0 +1,302 @@
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header text-center">
+                <a class="navbar-brand">Edit Will</a>
+            </div>
+            <div class="pull-left nav-right">
+                <a ng-href="#/user/{{model.uid}}/will"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            </div>
+            <div class="pull-right nav-right">
+                <a ng-click="model.updateWill()"><i class="glyphicon glyphicon-ok"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div ng-switch="model.will.willType" class="edit-body">
+        <div ng-switch-when="ACCOUNT">
+            <form>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="accountName">name</label>
+                        <input type="text" ng-model="model.will.name" class="form-control" id="accountName"
+                               value="{{model.will.name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="account">account</label>
+                        <input type="text" ng-model="model.will.account" class="form-control" id="account"
+                               value="{{model.will.account}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="accountPwd">account's password</label>
+                        <input type="text" ng-model="model.will.accountPwd" class="form-control" id="accountPwd"
+                               value="{{model.will.accountPwd}}">
+                    </div>
+                </div>
+                <div class="row name">
+                    <div class="form-group col-xs-6">
+                        <label>to Whom</label>
+                        <input type="text" ng-model="model.will.toWhom" class="form-control"
+                               value="{{model.will.toWhom}}">
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label>The person's contact info</label>
+                        <input type="text" ng-model="model.will.toContact" class="form-control"
+                               value="{{model.will.toContact}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea ng-model="model.will.description" class="form-control"
+                              rows="3">{{model.will.description}}</textarea>
+                </div>
+                <div class="row">
+                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
+                </div>
+            </form>
+        </div>
+        <div ng-switch-when="ITEM">
+            <form>
+                <div class="row">
+                    <div class="form-group">
+                        <label>name</label>
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>item name</label>
+                        <input type="text" ng-model="model.will.itemName" class="form-control"
+                               value="{{model.will.itemName}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>item number</label>
+                        <input type="text" ng-model="model.will.itemNumber" class="form-control"
+                               value="{{model.will.itemNumber}}">
+                    </div>
+                </div>
+                <div class="row name">
+                    <div class="form-group col-xs-6">
+                        <label>to Whom</label>
+                        <input type="text" ng-model="model.will.toWhom" class="form-control"
+                               value="{{model.will.toWhom}}">
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label>The person's contact info</label>
+                        <input type="text" ng-model="model.will.toContact" class="form-control"
+                               value="{{model.will.toContact}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea ng-model="model.will.description" class="form-control"
+                              rows="3">{{model.will.description}}</textarea>
+                </div>
+                <div class="row">
+                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
+                </div>
+            </form>
+        </div>
+        <div ng-switch-when="LETTER">
+            <form>
+                <div class="row">
+                    <div class="form-group">
+                        <label>name</label>
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>letter name</label>
+                        <input type="text" ng-model="model.will.letterName" class="form-control"
+                               value="{{model.will.letterName}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>content</label>
+                        <input type="text" ng-model="model.will.letterContent" class="form-control"
+                               value="{{model.will.letterContent}}">
+                    </div>
+                </div>
+                <div class="row name">
+                    <div class="form-group col-xs-6">
+                        <label>to Whom</label>
+                        <input type="text" ng-model="model.will.toWhom" class="form-control"
+                               value="{{model.will.toWhom}}">
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label>The person's contact info</label>
+                        <input type="text" ng-model="model.will.toContact" class="form-control"
+                               value="{{model.will.toContact}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea ng-model="model.will.description" class="form-control"
+                              rows="3">{{model.will.description}}</textarea>
+                </div>
+                <div class="row">
+                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
+                </div>
+            </form>
+
+
+        </div>
+        <div ng-switch-when="PICTURE">
+            <form>
+                <div class="row">
+                    <div class="form-group">
+                        <label>name</label>
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>picture name</label>
+                        <input type="text" ng-model="model.will.pictureName" class="form-control"
+                               value="{{model.will.pictureName}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>picture url</label>
+                        <input type="text" ng-model="model.will.pictureUrl" class="form-control"
+                               value="{{model.will.pictureUrl}}">
+                    </div>
+                </div>
+                <div class="row name">
+                    <form action="/api/sa/upload" method="post" enctype="multipart/form-data">
+                        <div class="col-xs-12 col-sm-10">
+                            <input name="myFile" type="file" class="form-control"/>
+                            <input name="willId" value="{{model.wid}}" style="display: none"/>
+                            <input name="userId" value="{{model.uid}}" style="display: none"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <input type="submit" name="upload" value="upload image" class="btn btn-default">
+                        </div>
+                    </form>
+                </div>
+                <div class="row name">
+                    <div class="form-group col-xs-6">
+                        <label>to Whom</label>
+                        <input type="text" ng-model="model.will.toWhom" class="form-control"
+                               value="{{model.will.toWhom}}">
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label>The person's contact info</label>
+                        <input type="text" ng-model="model.will.toContact" class="form-control"
+                               value="{{model.will.toContact}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea ng-model="model.will.description" class="form-control"
+                              rows="3">{{model.will.description}}</textarea>
+                </div>
+                <div class="row">
+                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
+                </div>
+            </form>
+
+
+        </div>
+        <div ng-switch-when="TEXT">
+            <form>
+                <div class="row">
+                    <div class="form-group">
+                        <label>name</label>
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>text name</label>
+                        <input type="text" ng-model="model.will.textName" class="form-control"
+                               value="{{model.will.textName}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>content</label>
+                        <!--todo-->
+                        <input type="text" ng-model="model.will.textContent" class="form-control"
+                               value="{{model.will.textContent}}">
+                    </div>
+                </div>
+                <div class="row name">
+                    <div class="form-group col-xs-6">
+                        <label>to Whom</label>
+                        <input type="text" ng-model="model.will.toWhom" class="form-control"
+                               value="{{model.will.toWhom}}">
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label>The person's contact info</label>
+                        <input type="text" ng-model="model.will.toContact" class="form-control"
+                               value="{{model.will.toContact}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea ng-model="model.will.description" class="form-control"
+                              rows="3">{{model.will.description}}</textarea>
+                </div>
+                <div class="row">
+                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
+                </div>
+            </form>
+
+        </div>
+        <div ng-switch-when="OTHER">
+            <form>
+                <div class="row">
+                    <div class="form-group">
+                        <label>name</label>
+                        <input type="text" ng-model="model.will.name" class="form-control" value="{{model.will.name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>content</label>
+                        <input type="text" ng-model="model.will.otherContent" class="form-control"
+                               value="{{model.will.otherContent}}">
+                    </div>
+                </div>
+                <div class="row name">
+                    <div class="form-group col-xs-6">
+                        <label>to Whom</label>
+                        <input type="text" ng-model="model.will.toWhom" class="form-control"
+                               value="{{model.will.toWhom}}">
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label>The person's contact info</label>
+                        <input type="text" ng-model="model.will.toContact" class="form-control"
+                               value="{{model.will.toContact}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea ng-model="model.will.description" class="form-control"
+                              rows="3">{{model.will.description}}</textarea>
+                </div>
+                <div class="row">
+                    <button ng-click="model.deleteWill()" type="button" class="btn btn-danger btn-block">Delete</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <footer class="footer navbar-fixed-bottom">
+        <div class="container footer-container">
+            <a class="pull-right to-profile" href="#/profile/{{model.uid}}"><i class="glyphicon glyphicon-user"></i></a>
+        </div>
+    </footer>
+</div>
