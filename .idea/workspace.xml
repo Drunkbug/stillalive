@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db5e63eb-08c7-407c-89d5-a2f77ab4e509" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/stillalive/js/filter.js" afterPath="$PROJECT_DIR$/public/stillalive/js/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stillalive/index.html" afterPath="$PROJECT_DIR$/public/stillalive/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stillalive/js/config.js" afterPath="$PROJECT_DIR$/public/stillalive/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stillalive/views/will/will-edit.view.client.html" afterPath="$PROJECT_DIR$/public/stillalive/views/will/will-edit.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stillalive/views/will/will.controller.client.js" afterPath="$PROJECT_DIR$/public/stillalive/views/will/will.controller.client.js" />
-    </list>
+    <list default="true" id="db5e63eb-08c7-407c-89d5-a2f77ab4e509" name="Default" comment="" />
     <ignored path="stillalive.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -169,8 +162,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="149" />
-    <option name="y" value="23" />
+    <option name="x" value="-133" />
+    <option name="y" value="337" />
     <option name="width" value="1269" />
     <option name="height" value="797" />
   </component>
@@ -541,15 +534,15 @@
       <workItem from="1466606391327" duration="2000" />
       <workItem from="1466608081794" duration="211000" />
       <workItem from="1466608426916" duration="452000" />
-      <workItem from="1466925101330" duration="3841000" />
+      <workItem from="1466925101330" duration="4059000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53763000" />
+    <option name="totallyTimeSpent" value="53981000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="149" y="23" width="1269" height="797" extended-state="0" />
+    <frame x="-133" y="337" width="1269" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18349358" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

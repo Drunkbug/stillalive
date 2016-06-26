@@ -1,0 +1,5 @@
+Welcome to my web application Still Alive.
+This is an application that helps people record and deliver their last will after they dead.
+To do that, client needs to register their account and keep updating their alive information by click an “still alive” button inside the website. The server will record the latest check in date of each client and alert if they haven’t appeared in the website in a certain period of time. The admin will make sure if the client is still alive or not by contacting them or their family directly. 
+If the client is dead, sadly. The admin will deliver these last will as they recorded before death.
+
