@@ -79,6 +79,11 @@
                 controller: "ClientWillEditController",
                 controllerAs: "model"
             })
+            .when("/user/:id/will/:wid/flickr",{
+                templateUrl:"views/will/will-flickr-search.view.client.html",
+                controller:"WillFlickrSearchController",
+                controllerAs:"model"
+            })
             .otherwise({
                 redirectTo: "/main"
             });

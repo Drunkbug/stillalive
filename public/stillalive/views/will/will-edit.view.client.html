@@ -171,18 +171,23 @@
                                value="{{model.will.pictureUrl}}">
                     </div>
                 </div>
-                <div class="row name">
-                    <form action="/api/sa/upload" method="post" enctype="multipart/form-data">
-                        <div class="col-xs-12 col-sm-10">
-                            <input name="myFile" type="file" class="form-control"/>
-                            <input name="willId" value="{{model.wid}}" style="display: none"/>
-                            <input name="userId" value="{{model.uid}}" style="display: none"/>
-                        </div>
-                        <div class="col-xs-12 col-sm-2">
-                            <input type="submit" name="upload" value="upload image" class="btn btn-default">
-                        </div>
-                    </form>
+                <div class="row">
+                    <a href="#/user/{{model.uid}}/will/{{model.wid}}/flickr">
+                        <button type="button" class="btn btn-primary btn-block">Flickr Search</button>
+                    </a>
                 </div>
+                <!--<div class="row name">-->
+                    <!--<form action="/api/sa/upload" method="post" enctype="multipart/form-data">-->
+                        <!--<div class="col-xs-12 col-sm-10">-->
+                            <!--<input name="myFile" type="file" class="form-control"/>-->
+                            <!--<input name="willId" value="{{model.wid}}" style="display: none"/>-->
+                            <!--<input name="userId" value="{{model.uid}}" style="display: none"/>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-12 col-sm-2">-->
+                            <!--<input type="submit" name="upload" value="upload image" class="btn btn-default">-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
                 <div class="row name">
                     <div class="form-group col-xs-6">
                         <label>to Whom</label>
@@ -225,7 +230,6 @@
                 <div class="row">
                     <div class="form-group">
                         <label>content</label>
-                        <!--todo-->
                         <input type="text" ng-model="model.will.textContent" class="form-control"
                                value="{{model.will.textContent}}">
                     </div>

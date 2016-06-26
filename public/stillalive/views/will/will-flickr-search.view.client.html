@@ -1,0 +1,41 @@
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header text-center">
+                <a class="navbar-brand">Flickr Search</a>
+            </div>
+            <div class="pull-left nav-right">
+                <a ng-href="#/user/{{model.uid}}/will/{{model.wid}}"><i
+                        class="glyphicon glyphicon-chevron-left"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-container">
+        <div class="row">
+            <div class="col-xs-8">
+                <input ng-model="searchText" type="text" class="form-control">
+            </div>
+            <div class="col-xs-4">
+                <span class="input-group-btn">
+                    <button type="submit" ng-click="model.searchPhotos(searchText)" class="btn btn-primary">
+                       search
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div ng-repeat="photo in model.photos.photo">
+                <div class="col-xs-4">
+                    <a ng-click="model.addFlikrUrl(photo)"
+                       href="">
+                        <img width="100%"
+                             ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"
+                             alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
