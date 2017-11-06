@@ -14,9 +14,11 @@
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
-    "toastr": "^2.1.2"
+    "toastr": "^2.1.2",
+    "ng-dialog": "^0.5.5",
+    "path": "^0.12.7",
+    "q": "^1.4.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
